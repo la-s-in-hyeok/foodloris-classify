@@ -8,23 +8,52 @@ from io import BytesIO
 from datetime import datetime
 import matplotlib.pyplot as plt
 
+st.set_page_config(
+    page_title="Food Analysis",
+    page_icon="🍽",
+    layout="centered",
+)
 # Streamlit 제목 설정
 st.title("Show your Food!!")
 
+
+
 # 초기 안내 메시지 추가
 st.markdown("""
-### 안녕하세요! 👋
-이 앱은 업로드한 음식 사진을 분석하여 음식의 이름과 칼로리, 영양 성분을 알려드립니다.
+            ### <이용방법>
+            이 앱은 업로드한 음식 사진을 분석하여 음식의 이름과 칼로리, 영양 성분을 알려드립니다.
 
-1. OpenAI API Key를 입력하세요.
-2. 음식 사진을 업로드하세요.
-3. 챗봇이 자동으로 분석을 수행하고 결과를 알려드릴 것입니다.
+            1. OpenAI API Key를 입력하세요.
+            2. 음식 사진을 업로드하세요.
+            3. 챗봇이 자동으로 분석을 수행하고 결과를 알려드릴 것입니다.
 
-**‼️주의‼️:** 음식 사진만 업로드해주세요. 다른 사진은 인식되지 않을 수 있습니다.
-""")
+            ‼️주의‼️: 음식 사진만 업로드해주세요. 다른 사진은 인식되지 않을 수 있습니다.
+    <style>
+        .reportview-container {
+            background-color: #f3f4ed;
+        }
+        h1 {
+            color: black;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
-# API Key 입력받기
-api_key = st.text_input("OpenAI API Key를 입력하세요", type="password")
+stored_password = st.secrets["password"]
+api_key = st.secrets["OPENAI_API_KEY"]
+
+input_password = st.text_input("비밀번호를 입력하세요", type="password")
+
+if input_password:
+    if input_password == stored_password:
+        st.success("비밀번호가 확인되었습니다. API Key가 자동으로 입력됩니다.")
+    else:
+        st.error("비밀번호가 올바르지 않습니다.")
+        api_key = None
+else:
+    api_key = None
 
 if api_key:
     if "openai_model" not in st.session_state:
@@ -130,7 +159,8 @@ if api_key:
                             f.write("-" * 40 + "\n")
                         st.success("피드백이 제출되었습니다. 감사합니다!")
                 elif feedback == "도움이 되었어요":
-                    st.success("감사합니다! 식사 맛있게하세요🍽️")
+                    st.success("""감사합니다! 식사 맛있게하세요🍽️\n
+                               This program was created by La-sinhyeok & Park geonsoo""")
                     with open("feedback.txt", "a") as f:
                         f.write(f"시간: {datetime.now()}\n")
                         f.write(f"사용자 피드백: {'good'}\n")
