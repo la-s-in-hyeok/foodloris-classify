@@ -219,9 +219,9 @@ if api_key:
                         st.warning("이미지 없이 추가 질문을 보낼 수 없습니다. 먼저 이미지를 업로드하세요.")
                 # 피드백 기능 추가
                 st.markdown("### 이 응답이 도움이 되었나요?")
-                feedback = st.radio("응답에 대한 피드백을 선택하세요", ["도움이 되었어요", "더 개선이 필요해요"], index=None)
+                feedback = st.radio("응답에 대한 피드백을 선택하세요", ["도움이 되었어요", "더 개선이 필요해요(다음)"], index=None)
 
-                if feedback == "더 개선이 필요해요":
+                if feedback == "더 개선이 필요해요(다음)":
                     feedback_text = st.text_area("어떤 부분을 개선하면 좋을지 알려주세요:")
                     if st.button("피드백 제출"):
                         # 피드백을 파일에 저장
@@ -231,7 +231,7 @@ if api_key:
                             f.write("-" * 40 + "\n")
                         st.success("피드백이 제출되었습니다. 감사합니다!")
                     else:
-                        st.warning("피드백 내용을 입력해주세요.")
+                        st.warning("피드백 내용을 입력해주세요.건수와 신혁이가 볼 수 있으니 욕은 하지말아주세요 ^^")
                 elif feedback == "도움이 되었어요":
                     st.success("""감사합니다! 식사 맛있게하세요🍽️\n
                                This program was created by La-sinhyeok & Park geonsoo""")
