@@ -42,3 +42,9 @@ Key features
 - GPT-4o 모델로부터 응답 생성
 
 - 응답에 대한 추가 질문 or 피드백
+
+Link
+-----------
+https://foodloris-classify-meuhscmqrzch5dqk4xwbrh.streamlit.app
+
+
