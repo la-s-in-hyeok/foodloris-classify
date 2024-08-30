@@ -47,4 +47,3 @@ Link
 -----------
 https://foodloris-classify-meuhscmqrzch5dqk4xwbrh.streamlit.app
 
-
