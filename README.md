@@ -16,7 +16,7 @@ Streamlit 기반 UI.
 ---------------
 
 
-▶뉴스 모델 제작
+▶모델 제작
 
 -VisualStudioCode
 
