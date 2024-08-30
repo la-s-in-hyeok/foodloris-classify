@@ -6,8 +6,10 @@
 ----------------
 
 
+
 음식 사진을 업로드 하면 음식에 관한 칼로리와 영양정보를 알려주는 챗봇 제작. 
 Streamlit 기반 UI.
+
 
 
 🧀: Development Environment
