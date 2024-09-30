@@ -219,7 +219,7 @@ if api_key:
                             f.write("-" * 40 + "\n")
                         st.success("피드백이 제출되었습니다. 감사합니다!")
                     else:
-                        st.warning("피드백 내용을 입력해주세요.건수와 신혁이가 볼 수 있으니 욕은 하지말아주세요 ^^")
+                        st.warning("피드백 내용을 입력해주세요.욕은 하지말아주세요 ^^")
                 elif feedback == "도움이 되었어요":
                     st.success("""감사합니다! 식사 맛있게하세요🍽️\n""")
                     with open("feedback.txt", "a") as f:
