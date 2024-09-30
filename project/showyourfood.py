@@ -167,7 +167,6 @@ if api_key:
                 #첫번째 응답을 세션 상태 messages에 추가
                 st.session_state.messages.append({"role": "assistant", "content": first_result['choices'][0]['message']['content']})
                 
-                # print(payload)
                 # 추가 질문 옵션 추가
                 st.markdown("### 추가 질문이 있나요?")
                 # Form for additional question submission
@@ -222,8 +221,7 @@ if api_key:
                     else:
                         st.warning("피드백 내용을 입력해주세요.건수와 신혁이가 볼 수 있으니 욕은 하지말아주세요 ^^")
                 elif feedback == "도움이 되었어요":
-                    st.success("""감사합니다! 식사 맛있게하세요🍽️\n
-                               This program was created by La-sinhyeok & Park geonsoo""")
+                    st.success("""감사합니다! 식사 맛있게하세요🍽️\n""")
                     with open("feedback.txt", "a") as f:
                             f.write(f"시간: {datetime.now()}\n")
                             f.write(f"사용자 피드백: {"good"}\n")
